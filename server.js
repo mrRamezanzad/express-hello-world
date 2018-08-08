@@ -1,10 +1,5 @@
-const express = require('express');
-const app = express();
+const app = require('./app/controllers/hello_world_controller.js')
 
-app.get('/', (req, res) => {
-    res.status(200).send()
+app.listen(4000, () => {
+    console.log('listening on port 4000')
 })
-
-module.exports = {
-    app,
-};
