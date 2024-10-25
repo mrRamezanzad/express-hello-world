@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-    res.status(201).send('users updated')
+    res.status(201).send('v0.0.0.1')
 })
 
 module.exports = app
