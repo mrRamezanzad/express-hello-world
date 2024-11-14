@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.status(200).send('hello there')
+    res.status(200).send('hello 1')
 })
 
 app.get('/users', (req, res) => {
