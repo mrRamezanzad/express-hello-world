@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh "docker-compose -f ${DOCKER_COMPOSE_FILE} build"
+                    sh "docker compose -f ${DOCKER_COMPOSE_FILE} build"
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh "docker-compose -f ${DOCKER_COMPOSE_FILE} up --abort-on-container-exit --exit-code-from app"
+                    sh "docker compose -f ${DOCKER_COMPOSE_FILE} up --abort-on-container-exit --exit-code-from app"
                 }
             }
         }
@@ -31,7 +31,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh "docker-compose -f ${DOCKER_COMPOSE_FILE} up -d"
+                    sh "docker compose -f ${DOCKER_COMPOSE_FILE} up -d"
                 }
             }
         }
@@ -39,7 +39,7 @@ pipeline {
 
     post {
         always {
-            sh "docker-compose -f ${DOCKER_COMPOSE_FILE} down"
+            sh "docker compose -f ${DOCKER_COMPOSE_FILE} down"
         }
         success {
             echo 'Deployment was successful!'
